@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: go-dvclpbpc
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: go-dvclpbpc 
+  name: go-dvclpbpc
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: go-dvclpbpc
+    weight: 100 
